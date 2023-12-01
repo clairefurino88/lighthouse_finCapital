@@ -1,0 +1,52 @@
+<!DOCTYPE html>  
+<html>  
+<body>  
+
+
+<?php
+require_once "cache_helper.php";
+#update_cache_if_old(CACHE_PATH);
+#update_cache(ENDPOINT,COMPANY_QUERY,[],APIKEY);
+$cache_array = get_cached_data(CACHE_PATH);
+echo(get_cache_age(CACHE_PATH));
+#update_test(CACHE_PATH);
+#echo "&lt;br>";
+#echo(get_cache_age(CACHE_PATH));
+?>
+
+<table align = "left" border = "1" cellpadding = "3" cellspacing = "0">  
+<tr>  
+<td>Value</td>  
+<td>Multiplication</td>  
+</tr>  
+<?php    
+foreach($cache_array as $company) {  
+    $id = $company["id"];
+    $title = $company["title"];
+    /*
+    $id = $company["id"];
+    $name = $company["name"];
+    $headcount = $company["headcount"];
+    $logoUrl = $company["logoUrl"];
+    $tags = $company["tags"];
+    $funding = $company["funding"];
+    $lastFundingAt = $funding["lastFundingAt"];
+    $lastFundingType = $funding["lastFundingType"];
+    $lastFundingTotal = $funding["lastFundingTotal"];
+    $investors = $funding["investors"];
+    $tractionMetrics = $company["tractionMetrics"];
+
+    # for loop for investors
+    # apex line chart
+
+    */
+    echo "<tr>";  
+    echo "<td> $id </td>";
+    echo "<td> $title </td>";
+    echo "</tr>";  
+
+}
+?>    
+</table>  
+</body>  
+</html>  
